@@ -2,11 +2,9 @@ const express = require('express');
 const path = require('path');
 const app = express();
 
-
 app.use(express.static(path.join(__dirname, 'legorasp-control/build')));
 
 app.get('/', function(req, res) {
-  //res.sendFile(path.join(__dirname, 'legorasp-control/', 'index.html'));
   res.sendFile(path.join(__dirname, 'legorasp-control/', 'index.html'));
 });
 
@@ -17,7 +15,6 @@ app.get('/cam/right', function(req, res) {
 });
 
 app.get('/cam/left', function(req, res) {
-  console.log('left');
   const { spawn } = require('child_process');	
   const pyProg = spawn('python', ['../pycontroler/stepmotor_left.py']);
   res.end('end');
@@ -26,10 +23,6 @@ app.get('/cam/left', function(req, res) {
         console.log(pydata.toString());
         res.write('data' + output); 
    });	*/	
-
-
-
-
 });
 
 
