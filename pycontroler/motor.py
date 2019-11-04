@@ -19,7 +19,7 @@ sec = 1700
 
 
 for x in range(0, 50):
-    sec=sec+20
+    sec = sec+20
     pi.set_servo_pulsewidth(servoPIN, sec)
     time.sleep(0.1)
     print(sec)
@@ -52,7 +52,7 @@ pi.set_servo_pulsewidth(servoPIN, 0)
 #    print('running')
 #    p.ChangeDutyCycle(1.5)
 #    time.sleep(1)
-    
+
 #except KeyboardInterrupt:
 #  p.stop()
 #  GPIO.cleanup()
