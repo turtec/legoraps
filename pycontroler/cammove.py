@@ -1,5 +1,4 @@
 from lib.CamPanTilt import CamPanTilt
-import time
 import importlib.util
 
 try:
@@ -11,7 +10,7 @@ except ImportError:
     import FakeRPi.GPIO as GPIO
 
 #self, stepPinA1, stepPinA2, stepPinB1, stepPinB2,
-#      enablePinRight,inputPin1Right,inputPin2Right, GPIO
+#enablePinRight,inputPin1Right,inputPin2Right, GPIO
 camPanTilt = CamPanTilt(1,2,3,4,5,6,7,GPIO)
 
 def control(command):
@@ -31,6 +30,4 @@ try:
 
 except KeyboardInterrupt:
   GPIO.cleanup()
-  #stop()
   print('stopped')
-  #

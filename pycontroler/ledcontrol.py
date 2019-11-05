@@ -16,15 +16,8 @@ except ImportError:
     """
     import FakeRPi.GPIO as GPIO
 
-#EnableA = 21
-#Input1 = 16
-#Input2 = 20
 
-  #  EnableA = 26
-#Input1 = 19
-#Input2 = 13
-
-led = LED(2,GPIO)
+led = LED(2, GPIO)
 
 def control(command):
   if command == "1":
