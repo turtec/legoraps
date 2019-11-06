@@ -10,7 +10,8 @@ class LED:
 
     def on(self):
        print ("LED is on")
-       self.GPIO.output(self.pin,self.GPIO.HIGH)
+       print (self.pin)
+       self.GPIO.output(self.pin, self.GPIO.HIGH)
 
     def off(self):
        print ("LED is off")

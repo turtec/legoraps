@@ -5,6 +5,7 @@ class Vehicle:
   # Initializer / Instance Attributes
   def __init__(self, enablePinLeft, inputPin1Left, inputPin2Left,
       enablePinRight,inputPin1Right,inputPin2Right, GPIO):
+     
       self.enablePinLeft = enablePinLeft
       self.inputPin1Left = inputPin1Left
       self.inputPin2Left = inputPin2Left
@@ -19,6 +20,8 @@ class Vehicle:
 
   def forward(self):
       print('forward')
+      #self.rightDc.stop()
+      #self.leftDc.stop()
       self.rightDc.forward()
       self.leftDc.forward()
       print('#############')

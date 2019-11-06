@@ -20,11 +20,11 @@ except ImportError:
 #Input1 = 16
 #Input2 = 20
     
-  #  EnableA = 26
+#EnableA = 26
 #Input1 = 19
 #Input2 = 13
     
-vehicle = Vehicle(21,20,16,26,19,13,GPIO)
+vehicle = Vehicle(21,16,20,17,27,22,GPIO)
 
 def control(command):
   if command == "f":
