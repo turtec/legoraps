@@ -4,19 +4,24 @@ from lib.StepMotor import StepMotor
 class CamPanTilt:
 
   # Initializer / Instance Attributes
-  def __init__(self, servoPin, stepPinA2, stepPinB1, stepPinB2,
-        enablePinRight, GPIO):
-      self.upDownDriver = ServoMotor('servoCam',servoPin,GPIO)
-      #self.leftRightDriver = StepMotor('stepcam',stepPinA1,stepPinA2,stepPinB1,stepPinB2, GPIO)
+  def __init__(self, servoPin, stepPinA1, stepPinA2, stepPinB1, stepPinB2, GPIO):
+      self.upDownDriver = ServoMotor(servoPin,GPIO)
+      self.leftRightDriver = StepMotor('stepcam',stepPinA1,stepPinA2,stepPinB1,stepPinB2, GPIO)
 
   def up(self):
       print('up')
-      self.upDownDriver.forward()
+      self.upDownDriver.left()
+      print('#############')
+
+
+  def front(self):
+      print('middle')
+      self.upDownDriver.middle()
       print('#############')
 
   def down(self):
        print('down')
-       self.upDownDriver.backward()
+       self.upDownDriver.right()
        print('#############')
 
   def left(self):

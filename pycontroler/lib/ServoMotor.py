@@ -1,30 +1,35 @@
-#import RPi.GPIO as GPIOH
+import time
+import pigpio
 
 class ServoMotor:
 
     # Initializer / Instance Attributes
-    def __init__(self, name, enablePin, inputPin1, inputPin2, GPIO):
-        self.name = name
-        self.enablePin = enablePin
-        self.inputPin1 = inputPin1
-        self.inputPin2 = inputPin2
+    def __init__(self, servoPin, GPIO):
         self.GPIO = GPIO
         self.GPIO.setmode(self.GPIO.BCM)
-        self.GPIO.setup(enablePin, self.GPIO.OUT)
-        self.GPIO.setup(inputPin1, self.GPIO.OUT)
-        self.GPIO.setup(inputPin2, self.GPIO.OUT)
+        self.servoPIN = servoPin
 
-    def forward(self):
-       print("{} is running forward".format(self.name))
+    def left(self):
+       print('servo forward')
+       pi = pigpio.pi()
+       pi.set_mode(self.servoPIN, pigpio.OUTPUT)
+       sec = 1500
+       pi.set_servo_pulsewidth(self.servoPIN, sec)
+       time.sleep(1)
 
-    def backward(self):
-       print ("{} is running backward".format(self.name))
+    def right(self):
+       print('servo backward')
+       pi = pigpio.pi()
+       pi.set_mode(self.servoPIN, pigpio.OUTPUT)
+       sec = 2500
+       pi.set_servo_pulsewidth(self.servoPIN, sec)
+       time.sleep(1)
 
-    def stop(self):
-       print ("{} is stopped".format(self.name))
+    def middle(self):
+       print('servo backward')
+       pi = pigpio.pi()
+       pi.set_mode(self.servoPIN, pigpio.OUTPUT)
+       sec = 2000
+       pi.set_servo_pulsewidth(self.servoPIN, sec)
+       time.sleep(1)
 
-    def increaseSpeed(self):
-       print ("{} speed increased".format(self.name))
-
-    def decreaseSpeed(self):
-       print ("{} speed decreased".format(self.name))

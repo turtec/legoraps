@@ -11,7 +11,12 @@ except ImportError:
 
 #self, stepPinA1, stepPinA2, stepPinB1, stepPinB2,
 #enablePinRight,inputPin1Right,inputPin2Right, GPIO
-camPanTilt = CamPanTilt(26,2,3,4,5,GPIO)
+servoPin = 26
+stepPinA1 = 1,
+stepPinA2 = 2,
+stepPinB1 = 3, 
+stepPinB2 = 4,
+camPanTilt = CamPanTilt(servoPin,stepPinA1, stepPinA2, stepPinB1, stepPinB2,GPIO)
 
 def control(command):
   if command == "l":
@@ -22,10 +27,13 @@ def control(command):
     camPanTilt.up()
   if command == "d":
     camPanTilt.down()
+  if command == "f":
+    camPanTilt.front()
+
 
 try:
   while True:
-    val = input('Choose a direction (u)p,(d)down,(l)eft,(r)ight: ')
+    val = input('Choose a direction (u)p,(d)down,(l)eft,(r)ight, (f)ront: ')
     control(val)
 
 except KeyboardInterrupt:
