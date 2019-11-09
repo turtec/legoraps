@@ -16,8 +16,12 @@ except ImportError:
     """
     import FakeRPi.GPIO as GPIO
 
-
-led = LED(2, GPIO)
+pin = 19
+#GPIO.cleanup()
+#GPIO.setmode(GPIO.BCM)
+#GPIO.setup(pin, GPIO.OUT)
+#GPIO.output(pin, GPIO.HIGH)
+led = LED(pin, GPIO)
 
 def control(command):
   if command == "1":

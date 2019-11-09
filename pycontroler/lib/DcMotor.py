@@ -8,6 +8,12 @@ class DcMotor:
         self.enablePin = enablePin
         self.inputPin1 = inputPin1
         self.inputPin2 = inputPin2
+        
+        print('init')
+        print(enablePin)
+        print(inputPin1)
+        print(inputPin2)
+        
         self.GPIO = GPIO
         self.GPIO.setmode(self.GPIO.BCM)
         self.GPIO.setup(enablePin, self.GPIO.OUT)
