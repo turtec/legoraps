@@ -11,7 +11,12 @@ except ImportError:
 
 #self, stepPinA1, stepPinA2, stepPinB1, stepPinB2,
 #enablePinRight,inputPin1Right,inputPin2Right, GPIO
-camPanTilt = CamPanTilt(1,2,3,4,5,6,7,GPIO)
+servoPin = 26
+stepPinA1 = 1,
+stepPinA2 = 2,
+stepPinB1 = 3, 
+stepPinB2 = 4,
+camPanTilt = CamPanTilt(servoPin,stepPinA1, stepPinA2, stepPinB1, stepPinB2,GPIO)
 
 def control(command):
   if command == "l":

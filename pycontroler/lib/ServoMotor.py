@@ -1,13 +1,11 @@
-#import RPi.GPIO as GPIOH
+import time
+import pigpio
 
 class ServoMotor:
 
     # Initializer / Instance Attributes
-    def __init__(self, name, enablePin, inputPin1, inputPin2, GPIO):
-        self.name = name
-        self.enablePin = enablePin
-        self.inputPin1 = inputPin1
-        self.inputPin2 = inputPin2
+    def __init__(self, servoPin, GPIO):
+        self.servoPin = enablePin
         self.GPIO = GPIO
         self.GPIO.setmode(self.GPIO.BCM)
         self.GPIO.setup(enablePin, self.GPIO.OUT)
@@ -15,16 +13,17 @@ class ServoMotor:
         self.GPIO.setup(inputPin2, self.GPIO.OUT)
 
     def forward(self):
-       print("{} is running forward".format(self.name))
+       pi = pigpio.pi()
+       pi.set_mode(servoPIN, pigpio.OUTPUT)
+       sec = 2000
+       pi.set_servo_pulsewidth(servoPIN, sec)
+       time.sleep(1)
 
     def backward(self):
-       print ("{} is running backward".format(self.name))
+       pi = pigpio.pi()
+       pi.set_mode(servoPIN, pigpio.OUTPUT)
+       sec = 1000
+       pi.set_servo_pulsewidth(servoPIN, sec)
+       time.sleep(1)
 
-    def stop(self):
-       print ("{} is stopped".format(self.name))
 
-    def increaseSpeed(self):
-       print ("{} speed increased".format(self.name))
-
-    def decreaseSpeed(self):
-       print ("{} speed decreased".format(self.name))
