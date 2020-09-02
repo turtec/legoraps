@@ -1,16 +1,19 @@
-const express = require('express');
+const express = require('./node_modules/express');
 const path = require('path');
 const app = express();
 
-app.use(express.static(path.join(__dirname, 'legorasp-control/build')));
+app.use(function (req, res, next) {
 
-app.get('/', function(req, res) {
-  res.sendFile(path.join(__dirname, 'legorasp-control/', 'index.html'));
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+  res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+  res.setHeader('Access-Control-Allow-Credentials', true);
+  next();
 });
 
 app.get('/cam/right', function(req, res) {
  const { spawn } = require('child_process');	
- const pyProg = spawn('python', ['../pycontroler/stepmotor_right.py']);
+ const pyProg = spawn('python', ['../piRobot-Core/stepmotor_right.py']);
  //console.log(pyProg.stdout)
  pyProg.stdout.on('data', (data) => {
    console.log('onData')
@@ -22,7 +25,7 @@ app.get('/cam/right', function(req, res) {
 
 app.get('/cam/left', function(req, res) {
   const { spawn } = require('child_process');	
-  const pyProg = spawn('python', ['../pycontroler/stepmotor_left.py']);
+  const pyProg = spawn('python', ['../piRobot-Core/stepmotor_left.py']);
   res.end('end');
   /* pyProg.stdout.on('data', function(pydata) {
 	const output = pydata;	
@@ -32,10 +35,11 @@ app.get('/cam/left', function(req, res) {
 });
 
 app.get('/comtest', function(req, res) {
+  console.log('a request')
   const { spawn } = require('child_process');	
   let output="";
-  const pyProg = spawn('python', ['../pycontroler/comtest.py']);
-  //console.log(pyProg.stdout)
+  const pyProg = spawn('python', ['../piRobot-Core/comtest.py']);
+  
   pyProg.stdout.on('data', (data) => {
     console.log('onData')
    output += data.toString();
@@ -45,4 +49,4 @@ app.get('/comtest', function(req, res) {
  });
 
 
-app.listen(9001);
+app.listen(9003);
