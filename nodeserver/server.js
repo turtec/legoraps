@@ -11,6 +11,12 @@ app.get('/', function(req, res) {
 app.get('/cam/right', function(req, res) {
  const { spawn } = require('child_process');	
  const pyProg = spawn('python', ['../pycontroler/stepmotor_right.py']);
+ //console.log(pyProg.stdout)
+ pyProg.stdout.on('data', (data) => {
+   console.log('onData')
+  output += data.toString();
+  console.log('output was generated: ' + output);
+});
  res.end('end');
 });
 
@@ -24,6 +30,19 @@ app.get('/cam/left', function(req, res) {
         res.write('data' + output); 
    });	*/	
 });
+
+app.get('/comtest', function(req, res) {
+  const { spawn } = require('child_process');	
+  let output="";
+  const pyProg = spawn('python', ['../pycontroler/comtest.py']);
+  //console.log(pyProg.stdout)
+  pyProg.stdout.on('data', (data) => {
+    console.log('onData')
+   output += data.toString();
+   console.log('output was generated: ' + output);
+ });
+  res.end('end');
+ });
 
 
 app.listen(9001);
