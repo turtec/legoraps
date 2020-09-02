@@ -5,25 +5,31 @@ class ServoMotor:
 
     # Initializer / Instance Attributes
     def __init__(self, servoPin, GPIO):
-        self.servoPin = enablePin
         self.GPIO = GPIO
         self.GPIO.setmode(self.GPIO.BCM)
-        self.GPIO.setup(enablePin, self.GPIO.OUT)
-        self.GPIO.setup(inputPin1, self.GPIO.OUT)
-        self.GPIO.setup(inputPin2, self.GPIO.OUT)
+        self.servoPIN = servoPin
 
-    def forward(self):
+    def left(self):
+       print('servo forward')
        pi = pigpio.pi()
-       pi.set_mode(servoPIN, pigpio.OUTPUT)
+       pi.set_mode(self.servoPIN, pigpio.OUTPUT)
+       sec = 1500
+       pi.set_servo_pulsewidth(self.servoPIN, sec)
+       time.sleep(1)
+
+    def right(self):
+       print('servo backward')
+       pi = pigpio.pi()
+       pi.set_mode(self.servoPIN, pigpio.OUTPUT)
+       sec = 2500
+       pi.set_servo_pulsewidth(self.servoPIN, sec)
+       time.sleep(1)
+
+    def middle(self):
+       print('servo backward')
+       pi = pigpio.pi()
+       pi.set_mode(self.servoPIN, pigpio.OUTPUT)
        sec = 2000
-       pi.set_servo_pulsewidth(servoPIN, sec)
+       pi.set_servo_pulsewidth(self.servoPIN, sec)
        time.sleep(1)
-
-    def backward(self):
-       pi = pigpio.pi()
-       pi.set_mode(servoPIN, pigpio.OUTPUT)
-       sec = 1000
-       pi.set_servo_pulsewidth(servoPIN, sec)
-       time.sleep(1)
-
 

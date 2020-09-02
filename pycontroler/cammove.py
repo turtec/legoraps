@@ -27,10 +27,13 @@ def control(command):
     camPanTilt.up()
   if command == "d":
     camPanTilt.down()
+  if command == "f":
+    camPanTilt.front()
+
 
 try:
   while True:
-    val = input('Choose a direction (u)p,(d)down,(l)eft,(r)ight: ')
+    val = input('Choose a direction (u)p,(d)down,(l)eft,(r)ight, (f)ront: ')
     control(val)
 
 except KeyboardInterrupt:
