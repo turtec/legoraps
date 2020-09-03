@@ -26,6 +26,8 @@ except ImportError:
     
 vehicle = Vehicle(21,16,20,17,27,22,GPIO)
 
+
+
 def control(command):
   if command == "f":
     vehicle.forward()

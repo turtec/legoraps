@@ -1,19 +1,7 @@
 
 const ps = require  ('python-shell');
 const express = require('./node_modules/express');
-const path = require('path');
-
 const app = express();
-
-//const pyscript =  spawn('python3', ['../piRobot-Core/main.py']);
-//let pyshell = new ps.PythonShell('../piRobot-Core/main.py');
-//const pyProg = spawn('python', ['../piRobot-Core/main.py']);  
-
-//pyshell.on('message', function (message) {
-  // received a message sent from the Python script (a simple "print" statement)
-//  console.log(message);
-//});
-
 // sends a message to the Python script via stdin
 var options = {
   //pythonPath: '/Users/zup/.local/share/virtualenvs/python_Shell_test-TJN5lQez/bin/python',
@@ -25,11 +13,6 @@ var options = {
 };
 
 const Shell = new ps.PythonShell("../piRobot-Core/main.py", options);
-
-/*setInterval(() => {
-  console.log('interval')
-  
-}, 1000);*/
 
 Shell.on("message", message => {
   console.log('js the message ' + message);
@@ -64,45 +47,29 @@ app.get('/cam/left', function(req, res) {
 });
 
 app.get('/move/forward', function(req, res) {
-  console.log('api call to move forward');
-  const { spawn } = require('child_process');	 
-  const pyProg = spawn('python', ['../piRobot-Core/api-interface/moveforward.py']);
-  res.end('end');
+  Shell.send(JSON.stringify({command:'f'}))
+  res.end('hs')
+});
+
+app.get('/move/left', function(req, res) {
+  Shell.send(JSON.stringify({command:'l'}))
+  res.end('hs')
+});
+
+app.get('/move/right', function(req, res) {
+  Shell.send(JSON.stringify({command:'r'}))
+  res.end('hs')
+});
+
+app.get('/move/stop', function(req, res) {
+  Shell.send(JSON.stringify({command:'s'}))
+  res.end('hs')
 });
 
 app.get('/comtest', function(req, res) {
-  
-  Shell.send('command')
+  Shell.send(JSON.stringify({command:'f'}))
   res.end('hs')
- /* pyProg.stdin.write('my data' + '\r\n');
-  res.end('hs')
- 
- pyProg.stdout.on('data', function (data) {
-  //console.log('Pipe data from python script ...');
-  dataToSend = data.toString();
-  console.log(dataToSend)
-  res.end(dataToSend)
- });
- 
- pyProg.stderr.on('data', (data) => {
-  console.log('error')
-  console.log(data);
-});*/
-
-
-
-
- // in close event we are sure that stream from child process is closed
- /*pyProg.on('close', (code) => {
- console.log(`child process close all stdio with code ${code}`);
- // send data to browser
- res.send(dataToSend)
- });*/
- 
-
-
- 
- });
+});
 
 
 app.listen(9006);

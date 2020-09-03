@@ -1,6 +1,6 @@
 const axios = require('axios')
-//const path = 'http://192.168.178.37:9003/'
-const path = 'http://localhost:9003/'
+const path = 'http://192.168.178.37:9006/'
+//const path = 'http://localhost:9003/'
 
 export const moveRight = () => {
   console.log('api move Right')

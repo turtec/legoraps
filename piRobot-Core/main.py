@@ -15,20 +15,29 @@ except ImportError:
     import FakeRPi.GPIO as GPIO
 from lib.Vehicle import Vehicle
 
-class HelloRPC:
+class Robot:
 
-  # Initializer / Instance Attributes
   def __init__(self):
-     self.counter = 0
-     
-  def fcCall(self, input):
-      self.counter=self.counter+1
-      return self.counter
+    self.vehicle = Vehicle(21,16,20,17,27,22,GPIO)
 
-vehicle = Vehicle(21,16,20,17,27,22,GPIO)
+  def receiveCommand(self, command):
+    if command == "mf":
+      self.vehicle.forward()
+    if command == "mb":
+      self.vehicle.backward()
+    if command == "ms":
+      self.vehicle.stop()
+    if command == "ml":
+      self.vehicle.left()
+    if command == "mr":
+      self.vehicle.right()
+
+robot = Robot()
 
 for line in sys.stdin:
-   # l = json.loads(line)
-    print(vehicle.forward())
+    l = line
+    print('line')
+    print(line)
+    robot.receiveCommand('mb')
     # Without this step the output may not be immediately available in node
     sys.stdout.flush()
