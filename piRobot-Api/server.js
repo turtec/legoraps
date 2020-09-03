@@ -9,7 +9,7 @@ var options = {
   // make sure you use an absolute path for scriptPath
   //scriptPath: "./subscriber/",
   // args: ['value1', 'value2', 'value3'],
- // mode: 'json'
+
 };
 
 const Shell = new ps.PythonShell("../piRobot-Core/main.py", options);
@@ -47,24 +47,30 @@ app.get('/cam/left', function(req, res) {
 });
 
 app.get('/move/forward', function(req, res) {
-  Shell.send(JSON.stringify({command:'f'}))
+  Shell.send(JSON.stringify({command:'mf'}))
   res.end('hs')
 });
 
 app.get('/move/left', function(req, res) {
-  Shell.send(JSON.stringify({command:'l'}))
+  Shell.send(JSON.stringify({command:'ml'}))
   res.end('hs')
 });
 
 app.get('/move/right', function(req, res) {
-  Shell.send(JSON.stringify({command:'r'}))
+  Shell.send(JSON.stringify({command:'mr'}))
   res.end('hs')
 });
 
 app.get('/move/stop', function(req, res) {
-  Shell.send(JSON.stringify({command:'s'}))
+  Shell.send(JSON.stringify({command:'ms'}))
   res.end('hs')
 });
+
+app.get('/move/backward', function(req, res) {
+  Shell.send(JSON.stringify({command:'mb'}))
+  res.end('hs')
+});
+
 
 app.get('/comtest', function(req, res) {
   Shell.send(JSON.stringify({command:'f'}))
