@@ -3,9 +3,7 @@ const path = 'http://192.168.178.37:9006/'
 //const path = 'http://localhost:9003/'
 
 export const moveRight = () => {
-  console.log('api move Right')
-  console.log(path)
-  axios.get(path+'comtest').then((res) => {
+  axios.get(path+'move/right').then((res) => {
     console.log(`statusCode: ${res.statusCode}`)
     console.log(res)
   })
@@ -15,11 +13,16 @@ export const moveRight = () => {
 }
 
 export const moveLeft = () => {
-  console.log('move Left')
+  axios.get(path+'move/left').then((res) => {
+    console.log(`statusCode: ${res.statusCode}`)
+    console.log(res)
+  })
+  .catch((error) => {
+    console.error(error)
+  })
 }
 
 export const moveForward = () => {
-  console.log('api move forward')
   axios.get(path+'move/forward').then((res) => {
     console.log(`statusCode: ${res.statusCode}`)
     console.log(res)
@@ -28,3 +31,24 @@ export const moveForward = () => {
     console.error(error)
   })
 }
+
+export const moveBackward = () => {
+  axios.get(path+'move/backward').then((res) => {
+    console.log(`statusCode: ${res.statusCode}`)
+    console.log(res)
+  })
+  .catch((error) => {
+    console.error(error)
+  })
+}
+
+export const moveStop = () => {
+  axios.get(path+'move/stop').then((res) => {
+    console.log(`statusCode: ${res.statusCode}`)
+    console.log(res)
+  })
+  .catch((error) => {
+    console.error(error)
+  })
+}
+

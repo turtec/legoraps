@@ -28,24 +28,6 @@ app.use(function (req, res, next) {
   next();
 });
 
-app.get('/cam/right', function(req, res) {
- const { spawn } = require('child_process');	
- const pyProg = spawn('python', ['../piRobot-Core/stepmotor_right.py']);
- //console.log(pyProg.stdout)
- pyProg.stdout.on('data', (data) => {
-   console.log('onData')
-  output += data.toString();
-  console.log('output was generated: ' + output);
-});
- res.end('end');
-});
-
-app.get('/cam/left', function(req, res) {
-  const { spawn } = require('child_process');	
-  const pyProg = spawn('python', ['../piRobot-Core/stepmotor_left.py']);
-  res.end('end');	
-});
-
 app.get('/move/forward', function(req, res) {
   Shell.send(JSON.stringify({command:'mf'}))
   res.end('hs')
@@ -70,12 +52,5 @@ app.get('/move/backward', function(req, res) {
   Shell.send(JSON.stringify({command:'mb'}))
   res.end('hs')
 });
-
-
-app.get('/comtest', function(req, res) {
-  Shell.send(JSON.stringify({command:'f'}))
-  res.end('hs')
-});
-
 
 app.listen(9006);
