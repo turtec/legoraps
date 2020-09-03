@@ -1,7 +1,8 @@
 import React from 'react';
 import ButtonLeft from './uicomponents/ButtonLeft'
 import ButtonRight from './uicomponents/ButtonRight'
-import {moveRight, moveLeft} from './api'
+import ButtonForward from './uicomponents/ButtonForward'
+import {moveRight, moveLeft, moveForward} from './api'
 
 import './App.css';
 
@@ -15,12 +16,18 @@ function triggerRight(){
   moveRight()
 }
 
+function triggerForward(){
+  console.log('triggerForward')
+  moveForward()
+}
+
 
 function App() {
   return (
     <div className="App">
       <ButtonLeft onclick={triggerLeft}/>
       <ButtonRight onclick={triggerRight}/>
+      <ButtonForward onclick={triggerForward}/>
     </div>
   );
 }

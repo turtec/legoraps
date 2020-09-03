@@ -1,6 +1,6 @@
 const axios = require('axios')
+//const path = 'http://192.168.178.37:9003/'
 const path = 'http://localhost:9003/'
-
 
 export const moveRight = () => {
   console.log('api move Right')
@@ -16,4 +16,15 @@ export const moveRight = () => {
 
 export const moveLeft = () => {
   console.log('move Left')
+}
+
+export const moveForward = () => {
+  console.log('api move forward')
+  axios.get(path+'move/forward').then((res) => {
+    console.log(`statusCode: ${res.statusCode}`)
+    console.log(res)
+  })
+  .catch((error) => {
+    console.error(error)
+  })
 }
