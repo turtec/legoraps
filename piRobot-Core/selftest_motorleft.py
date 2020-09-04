@@ -10,11 +10,7 @@ except ModuleNotFoundError:
 EnableA = 17
 Input1 = 27
 Input2 = 22
-    
-#EnableA = 26
-#Input1 = 19
-#Input2 = 13
-    
+        
 def control(command):
   if command == "f":
     motor.forward()
@@ -24,9 +20,6 @@ def control(command):
     motor.stop()
 
 motor = DcMotor('left',EnableA, Input1, Input2,GPIO)
-
-
-
 
 try:
   while True:

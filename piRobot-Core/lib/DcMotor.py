@@ -12,12 +12,6 @@ class DcMotor:
         self.GPIO.setup(inputPin1, self.GPIO.OUT)
         self.GPIO.setup(inputPin2, self.GPIO.OUT)
 
-    def returnPins(self):
-      print('init')
-      print(self.enablePin)
-      print(self.inputPin1)
-      print(self.inputPin2) 
-
     def forward(self):
        print("{} is running forward".format(self.name))
        self.GPIO.output(self.enablePin, True)
