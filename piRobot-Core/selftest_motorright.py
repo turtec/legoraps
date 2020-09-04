@@ -8,13 +8,9 @@ except ModuleNotFoundError:
     import FakeRPi.GPIO as GPIO
 
 EnableA = 26
-Input1 = 19
-Input2 = 13
-    
-#EnableA = 26
-#Input1 = 19
-#Input2 = 13
-    
+Input1 = 13
+Input2 = 6
+        
 def control(command):
   if command == "f":
     motor.forward()
@@ -23,7 +19,7 @@ def control(command):
   if command == "s":
     motor.stop()
 
-motor = DcMotor('right',EnableA, Input1, Input2,GPIO)
+motor = DcMotor('right',EnableA, Input1, Input2, GPIO)
 
 
 
