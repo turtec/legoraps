@@ -1,4 +1,8 @@
-import sys 
+import sys try:
+    import RPi.GPIO as GPIO
+except ModuleNotFoundError:
+    # Error handling
+    import FakeRPi.GPIO as GPIO
 import json
 from lib.RobotCommander import RobotCommander
 
