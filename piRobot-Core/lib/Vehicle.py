@@ -20,8 +20,6 @@ class Vehicle:
 
   def forward(self):
       print('forward')
-      #self.rightDc.stop()
-      #self.leftDc.stop()
       self.rightDc.forward()
       self.leftDc.forward()
       print('#############')
@@ -40,14 +38,14 @@ class Vehicle:
 
   def left(self):
       print('left')
-      self.rightDc.backward()
-      self.leftDc.forward()
+      self.rightDc.forward()
+      self.leftDc.backward()
       print('#############')
 
   def right(self):
       print('right')
-      self.rightDc.forward()
-      self.leftDc.backward()
+      self.rightDc.backward()
+      self.leftDc.forward()
       print('#############')
 
   def increaseSpeed(self):
