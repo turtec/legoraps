@@ -5,7 +5,12 @@ import RPi.GPIO as GPIO
 enablePin = 17
 inputPin1 = 27
 inputPin2 = 22
-        
+
+GPIO.setmode(GPIO.BCM)
+GPIO.setup(enablePin, GPIO.OUT)
+GPIO.setup(inputPin1, GPIO.OUT)
+GPIO.setup(inputPin2, GPIO.OUT)
+
 def control(command):
   if command == "f":
     forward()
