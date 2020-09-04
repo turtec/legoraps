@@ -7,9 +7,9 @@ except ModuleNotFoundError:
     # Error handling
     import FakeRPi.GPIO as GPIO
 
-EnableA = 21
-Input1 = 16
-Input2 = 20
+EnableA = 17
+Input1 = 27
+Input2 = 22
     
 #EnableA = 26
 #Input1 = 19
