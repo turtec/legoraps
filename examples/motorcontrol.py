@@ -29,7 +29,7 @@ def backward():
   GPIO.output(inputPin1, False)
   GPIO.output(inputPin2, True)
 
-def stop(self):
+def stop():
   GPIO.output(enablePin, False)
   GPIO.output(inputPin1, False)
   GPIO.output(inputPin2, False)
