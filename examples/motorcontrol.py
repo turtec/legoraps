@@ -11,7 +11,7 @@ GPIO.setup(enablePin, GPIO.OUT)
 GPIO.setup(inputPin1, GPIO.OUT)
 GPIO.setup(inputPin2, GPIO.OUT)
 pmw = GPIO.PWM(enablePin, 100)
-
+pmw.start(0)
 
 def control(command):
   if command == "f":
@@ -37,10 +37,10 @@ def stop():
   GPIO.output(inputPin2, False)
 
 def increaseSpeed():
-  pmw.changeDutyCircle(60)
+  pmw.ChangeDutyCircle(60)
 
 def decreaseSpeed():
-  pmw.changeDutyCircle(25)
+  pmw.ChangeDutyCircle(25)
 
 
 try:
