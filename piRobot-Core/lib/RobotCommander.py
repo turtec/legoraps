@@ -20,9 +20,11 @@ class RobotCommander:
     if command == "mr":
       self.robot.moveRight()
     if command == "ds":
-      self.robot.decreaseSpeed()
+      number = jsonStream['number']
+      self.robot.decreaseSpeed(number)
     if command == "is":
-      self.robot.increaseSpeed()
+      number = jsonStream['number']
+      self.robot.increaseSpeed(number)
 
   def handleCLICommand(self, command):
     if command == "f":
