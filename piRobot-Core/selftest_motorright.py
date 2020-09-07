@@ -7,9 +7,9 @@ except ModuleNotFoundError:
     # Error handling
     import FakeRPi.GPIO as GPIO
 
-EnableA = 26
-Input1 = 13
-Input2 = 6
+EnableA = 13
+Input1 = 6
+Input2 = 5
         
 def control(command):
   if command == "f":
