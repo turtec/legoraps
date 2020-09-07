@@ -8,7 +8,7 @@ except ModuleNotFoundError:
 class Robot:
 
   def __init__(self):
-    self.vehicle = Vehicle(21,16,20,17,27,22,GPIO)
+    self.vehicle = Vehicle(17,27,22,13,5,6,GPIO)
 
   def moveRight(self):
     self.vehicle.right()
