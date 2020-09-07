@@ -37,10 +37,10 @@ def stop():
   GPIO.output(inputPin2, False)
 
 def increaseSpeed():
-  pmw.ChangeDutyCircle(60)
+  pmw.ChangeDutyCycle(60)
 
 def decreaseSpeed():
-  pmw.ChangeDutyCircle(25)
+  pmw.ChangeDutyCycle(25)
 
 
 try:
