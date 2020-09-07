@@ -1,4 +1,5 @@
-import sys try:
+import sys 
+try:
     import RPi.GPIO as GPIO
 except ModuleNotFoundError:
     # Error handling
