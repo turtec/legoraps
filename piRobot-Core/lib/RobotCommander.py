@@ -19,6 +19,10 @@ class RobotCommander:
       self.robot.moveLeft()
     if command == "mr":
       self.robot.moveRight()
+    if command == "ds":
+      self.robot.decreaseSpeed()
+    if command == "is":
+      self.robot.increaseSpeed()
 
   def handleCLICommand(self, command):
     if command == "f":

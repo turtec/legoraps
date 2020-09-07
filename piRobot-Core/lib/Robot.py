@@ -22,6 +22,13 @@ class Robot:
   def moveBackward(self):
     self.vehicle.backward()
 
+  def increaseSpeed(self):
+    self.vehicle.increaseSpeed()
+
+  def decreaseSpeed(self):
+    self.vehicle.decreaseSpeed()
+
+
   def moveStop(self):
     self.vehicle.stop()
 

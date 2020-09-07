@@ -10,6 +10,8 @@ GPIO.setmode(GPIO.BCM)
 GPIO.setup(enablePin, GPIO.OUT)
 GPIO.setup(inputPin1, GPIO.OUT)
 GPIO.setup(inputPin2, GPIO.OUT)
+pmw = GPIO.PWM(enablePin, 100)
+
 
 def control(command):
   if command == "f":
@@ -34,6 +36,13 @@ def stop():
   GPIO.output(inputPin1, False)
   GPIO.output(inputPin2, False)
 
+def increaseSpeed():
+  pmw.changeDutyCircle(60)
+
+def decreaseSpeed():
+  pmw.changeDutyCircle(25)
+
+
 try:
   while True:
     command = input('Choose a direction (f)orward,(b)ackward,(s)top,(i)ncrease Speed,(d)ecrease Speed: ')
@@ -43,6 +52,11 @@ try:
       backward()
     if command == "s":
       stop()
+    if command == "i":
+      increaseSpeed()
+    if command == "d":
+      decreaseSpeed()
+
 
 except KeyboardInterrupt:
   GPIO.cleanup()
