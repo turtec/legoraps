@@ -10,8 +10,10 @@ GPIO.setmode(GPIO.BCM)
 GPIO.setup(enablePin, GPIO.OUT)
 GPIO.setup(inputPin1, GPIO.OUT)
 GPIO.setup(inputPin2, GPIO.OUT)
-pmw = GPIO.PWM(enablePin, 100)
-pmw.start(0)
+pmw = GPIO.PWM(enablePin, 1000)
+currentSpeed = 50
+pmw.start(currentSpeed)
+
 
 def control(command):
   if command == "f":
@@ -37,10 +39,12 @@ def stop():
   GPIO.output(inputPin2, False)
 
 def increaseSpeed():
-  pmw.ChangeDutyCycle(100)
+  currentSpeed = currentSpeed + 10
+  pmw.ChangeDutyCycle(currentSpeed)
 
 def decreaseSpeed():
-  pmw.ChangeDutyCycle(50)
+  currentSpeed = currentSpeed - 10
+  pmw.ChangeDutyCycle(currentSpeed)
 
 
 try:
