@@ -5,7 +5,7 @@ import RPi.GPIO as GPIO
 enablePin = 17
 inputPin1 = 27
 inputPin2 = 22
-global currentSpeed = 50
+currentSpeed = 50
 
 
 GPIO.setmode(GPIO.BCM)
@@ -40,12 +40,21 @@ def stop():
   GPIO.output(inputPin2, False)
 
 def increaseSpeed():
+  global currentSpeed 
   currentSpeed = currentSpeed + 10
-  pmw.ChangeDutyCycle(currentSpeed)
+  if currentSpeed <= 100:
+    pmw.ChangeDutyCycle(currentSpeed)
+    print(currentSpeed)
+  else:
+    print('max speed 100')
 
 def decreaseSpeed():
   currentSpeed = currentSpeed - 10
-  pmw.ChangeDutyCycle(currentSpeed)
+  if currentSpeed >= 0:
+    pmw.ChangeDutyCycle(currentSpeed)
+    print(currentSpeed)
+  else:
+    print('min speed 0')
 
 
 try:

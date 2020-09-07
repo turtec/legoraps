@@ -34,8 +34,17 @@ class DcMotor:
 
     def increaseSpeed(self):
        print ("{} speed increased".format(self.name))
-       self.pwm.changeDutyCircle(60)
+   
+       self.currentSpeed = self.currentSpeed + 10
+       if self.currentSpeed <= 100:
+         self.pmw.ChangeDutyCycle(self.currentSpeed)
+       else:
+         print('max speed 100')
 
     def decreaseSpeed(self):
        print ("{} speed decreased".format(self.name))
-       self.pwm.changeDutyCircle(10)
+       self.currentSpeed = self.currentSpeed - 10
+       if self.currentSpeed >= 0:
+         self.pmw.ChangeDutyCycle(self.currentSpeed)
+       else:
+         print('min')
