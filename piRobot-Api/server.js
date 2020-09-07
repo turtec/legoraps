@@ -47,12 +47,12 @@ app.get('/move/backward', function(req, res) {
 });
 
 app.get('/move/increasespeed', function(req, res) {
-  Shell.send(JSON.stringify({command:'is', number: 20}))
+  Shell.send(JSON.stringify({command:'is', number: 10}))
   res.end('hs')
 });
 
 app.get('/move/decreasespeed', function(req, res) {
-  Shell.send(JSON.stringify({command:'ds', number: 20}))
+  Shell.send(JSON.stringify({command:'ds', number: 10}))
   res.end('hs')
 });
 
