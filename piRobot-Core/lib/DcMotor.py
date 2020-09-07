@@ -13,7 +13,7 @@ class DcMotor:
         self.GPIO.setup(enablePin, self.GPIO.OUT)
         self.GPIO.setup(inputPin1, self.GPIO.OUT)
         self.GPIO.setup(inputPin2, self.GPIO.OUT)
-        self.pwm = GPIO.PWM(enablePin,1000)
+        self.pwm = GPIO.PWM(enablePin,100)
         self.pwm.start(0)
         self.pwm.ChangeDutyCycle(self.currentSpeed)
 
