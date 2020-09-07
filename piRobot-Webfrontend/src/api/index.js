@@ -52,3 +52,23 @@ export const moveStop = () => {
   })
 }
 
+export const moveDecreaseSpeed = () => {
+  axios.get(path+'move/decreaseSpeed').then((res) => {
+    console.log(`statusCode: ${res.statusCode}`)
+    console.log(res)
+  })
+  .catch((error) => {
+    console.error(error)
+  })
+}
+
+export const moveIncreaseSpeed = () => {
+  axios.get(path+'move/increaseSpeed').then((res) => {
+    console.log(`statusCode: ${res.statusCode}`)
+    console.log(res)
+  })
+  .catch((error) => {
+    console.error(error)
+  })
+}
+

@@ -38,8 +38,9 @@ class DcMotor:
     def increaseSpeed(self,number):
        print ("{} speed increased".format(self.name))
        print ("{} currentspeed".format(self.currentSpeed))
-       self.currentSpeed = self.currentSpeed + number
-       if self.currentSpeed <= 100:
+      
+       if (self.currentSpeed + number) <= 100:
+         self.currentSpeed = self.currentSpeed + number
          self.pwm.ChangeDutyCycle(self.currentSpeed)
          print ("{} new speed".format(self.currentSpeed))
        else:
@@ -48,8 +49,9 @@ class DcMotor:
     def decreaseSpeed(self, number):
        print ("{} speed decreased".format(self.name))
        print ("{} currentspeed".format(self.currentSpeed))
-       self.currentSpeed = self.currentSpeed - number
-       if self.currentSpeed >= 0:
+       
+       if (self.currentSpeed - number) >= 0:
+         self.currentSpeed = self.currentSpeed - number
          self.pwm.ChangeDutyCycle(self.currentSpeed)
          print ("{} new speed".format(self.currentSpeed))
        else:
