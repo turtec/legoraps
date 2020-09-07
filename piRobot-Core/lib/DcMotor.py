@@ -9,10 +9,11 @@ class DcMotor:
         self.GPIO = GPIO
         self.currentSpeed = 50
         self.GPIO.setmode(self.GPIO.BCM)
-        self.pwm = GPIO.PWM(enablePin,1000)
+        
         self.GPIO.setup(enablePin, self.GPIO.OUT)
         self.GPIO.setup(inputPin1, self.GPIO.OUT)
         self.GPIO.setup(inputPin2, self.GPIO.OUT)
+        self.pwm = GPIO.PWM(enablePin,1000)
         self.pwm.start(0)
         self.pwm.ChangeDutyCycle(self.currentSpeed)
 
