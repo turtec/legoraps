@@ -35,18 +35,18 @@ class DcMotor:
        self.GPIO.output(self.inputPin1, False)
        self.GPIO.output(self.inputPin2, False)
 
-    def increaseSpeed(self):
+    def increaseSpeed(self,number):
        print ("{} speed increased".format(self.name))
    
-       self.currentSpeed = self.currentSpeed + 10
+       self.currentSpeed = self.currentSpeed + number
        if self.currentSpeed <= 100:
          self.pwm.ChangeDutyCycle(self.currentSpeed)
        else:
          print('max speed 100')
 
-    def decreaseSpeed(self):
+    def decreaseSpeed(self, number):
        print ("{} speed decreased".format(self.name))
-       self.currentSpeed = self.currentSpeed - 10
+       self.currentSpeed = self.currentSpeed - number
        if self.currentSpeed >= 0:
          self.pwm.ChangeDutyCycle(self.currentSpeed)
        else:

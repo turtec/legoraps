@@ -1,6 +1,6 @@
 from lib.DcMotor import DcMotor
 
-class Vehicle:
+class ChainedVehicle:
 
   # Initializer / Instance Attributes
   def __init__(self, enablePinLeft, inputPin1Left, inputPin2Left,
@@ -48,14 +48,14 @@ class Vehicle:
       self.leftDc.forward()
       print('#############')
 
-  def increaseSpeed(self):
+  def increaseSpeed(self, number):
       print('increaseSpeed')
-      self.rightDc.increaseSpeed()
-      self.leftDc.increaseSpeed()
+      self.rightDc.increaseSpeed(number)
+      self.leftDc.increaseSpeed(number)
       print('#############')
 
-  def decreaseSpeed(self):
+  def decreaseSpeed(self, number):
       print('decreaseSpeed')
-      self.rightDc.decreaseSpeed()
-      self.leftDc.decreaseSpeed()
+      self.rightDc.decreaseSpeed(number)
+      self.leftDc.decreaseSpeed(number)
       print('#############')

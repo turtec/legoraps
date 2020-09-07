@@ -1,4 +1,4 @@
-from lib.Vehicle import Vehicle
+from lib.ChainedVehicle import ChainedVehicle
 try:
     import RPi.GPIO as GPIO
 except ModuleNotFoundError:
@@ -8,7 +8,7 @@ except ModuleNotFoundError:
 class Robot:
 
   def __init__(self):
-    self.vehicle = Vehicle(17,27,22,13,6,5,GPIO)
+    self.vehicle = ChainedVehicle(17,27,22,13,6,5,GPIO)
 
   def moveRight(self):
     self.vehicle.right()
@@ -22,12 +22,11 @@ class Robot:
   def moveBackward(self):
     self.vehicle.backward()
 
-  def increaseSpeed(self):
-    self.vehicle.increaseSpeed()
+  def increaseSpeed(self, number):
+    self.vehicle.increaseSpeed(number)
 
-  def decreaseSpeed(self):
-    self.vehicle.decreaseSpeed()
-
+  def decreaseSpeed(self, number):
+    self.vehicle.decreaseSpeed(number)
 
   def moveStop(self):
     self.vehicle.stop()
