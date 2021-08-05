@@ -7,7 +7,7 @@ class DcMotor:
         self.inputPin1 = inputPin1
         self.inputPin2 = inputPin2
         self.GPIO = GPIO
-        self.currentSpeed = 50
+        self.currentSpeed = 100
         self.GPIO.setmode(self.GPIO.BCM)
         
         self.GPIO.setup(enablePin, self.GPIO.OUT)
