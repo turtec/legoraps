@@ -34,7 +34,7 @@ def control(command):
 try:
   while True:
     val = input('Choose a direction (f)orward,(b)ackward,(l)eft,(r)ight,(s)top,(i)ncrease Speed,(d)ecrease Speed: ')
-    commander.handleCLICommand(line)
+    commander.handleCLICommand(val)
 
 except KeyboardInterrupt:
   GPIO.cleanup()
