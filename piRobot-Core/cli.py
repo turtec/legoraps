@@ -1,7 +1,9 @@
 from lib.Vehicle import Vehicle
 import time
 import sys
+from lib.RobotCommander import RobotCommander
 
+commander = RobotCommander()
 import importlib.util
 try:
     print("use1")
