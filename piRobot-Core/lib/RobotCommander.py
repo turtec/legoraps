@@ -31,6 +31,12 @@ class RobotCommander:
       self.robot.moveBackward()
     if command == "l":
       self.robot.moveLeft()
+    if command == "s":
+      self.robot.moveStop()
+    if command == "u":
+      self.robot.camUp()
+    if command == "d":
+      self.robot.camDown()
    # if command == "r":
    #   vehicle.right()
    # if command == "s":

@@ -1,4 +1,3 @@
-from lib.Vehicle import Vehicle
 import time
 import sys
 from lib.RobotCommander import RobotCommander

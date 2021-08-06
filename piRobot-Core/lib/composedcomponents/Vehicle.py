@@ -1,4 +1,4 @@
-from lib.DcMotor import DcMotor
+from lib.components.motors.DcMotor import DcMotor
 
 class Vehicle:
 

@@ -1,5 +1,5 @@
-from lib.ServoMotor import ServoMotor
-from lib.StepMotor import StepMotor
+from lib.components.motors.ServoMotor import ServoMotor
+from lib.components.motors.StepMotor import StepMotor
 
 class CamPanTilt:
 

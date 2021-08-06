@@ -11,6 +11,7 @@ class ServoMotor:
 
     def left(self):
        print('servo forward')
+       print(self.servoPIN)
        pi = pigpio.pi()
        pi.set_mode(self.servoPIN, pigpio.OUTPUT)
        sec = 1500
