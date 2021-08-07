@@ -5,8 +5,6 @@ class ServoMotor:
 
     # Initializer / Instance Attributes
     def __init__(self, servoPin, GPIO):
-        #self.GPIO = GPIO
-        #self.GPIO.setmode(self.GPIO.BCM)
         self.servoPIN = servoPin
         self.pi = pigpio.pi()
         self.pi.set_mode(self.servoPIN, pigpio.OUTPUT)
