@@ -15,11 +15,15 @@ class Robot:
 
   def camUp(self):
    self.camPanTilt.up()
-   
- 
+
   def camDown(self):
    print("camdown")
    self.camPanTilt.down()
+
+  def camMiddle(self):
+   print("camdown")
+   self.camPanTilt.front()
+
 
   def moveRight(self):
     self.vehicle.right()

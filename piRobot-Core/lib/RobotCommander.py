@@ -37,6 +37,12 @@ class RobotCommander:
       self.robot.camUp()
     if command == "d":
       self.robot.camDown()
+    if command == "m":
+      self.robot.camMiddle()
+    if command == "ds":
+      self.robot.decreaseSpeed()
+    if command == "is":
+      self.robot.increaseSpeed()
    # if command == "r":
    #   vehicle.right()
    # if command == "s":

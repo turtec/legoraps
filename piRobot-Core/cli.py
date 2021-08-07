@@ -17,19 +17,7 @@ except ImportError:
     """
     import FakeRPi.GPIO as GPIO
 
-#EnableA = 21
-#Input1 = 16
-#Input2 = 20
     
-#EnableA = 26
-#Input1 = 19
-#Input2 = 13
-    
-def control(command):
-  if command == "f":
-    robot.moveForward()
-
-
 try:
   while True:
     val = input('Choose a direction (f)orward,(b)ackward,(l)eft,(r)ight,(s)top,(i)ncrease Speed,(d)ecrease Speed: ')
